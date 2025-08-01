@@ -3,14 +3,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-/**
- *
- * Beschreibung
- *
- * @version 1.0 vom 01.08.2025
- * @author
- */
-
 public class MyGame extends JFrame {
     // start attributes
     private JButton jButton1 = new JButton();
@@ -108,14 +100,7 @@ public class MyGame extends JFrame {
     public void jButton1_ActionPerformed(ActionEvent evt) {
         // TODO add your code here
 
-
-
         printGameField(gameField);
-
-
-
-
-
 
     } // end of jButton1_ActionPerformed
 
@@ -124,11 +109,11 @@ public class MyGame extends JFrame {
 
         gameField[posY][posX] = 0;
 
-        gameField[posY][Math.max(0, posX-1)] = 1;
-
         if (posX > 0){
             posX -= 1;
         }
+
+        gameField[posY][Math.max(0, posX)] = 1;
 
         printGameField(gameField);
 
@@ -137,17 +122,13 @@ public class MyGame extends JFrame {
     public void bRIGHT_ActionPerformed(ActionEvent evt) {
         // TODO add your code here
 
-
         gameField[posY][Math.min(posX, 9)] = 0;
-
-        gameField[posY][Math.min(9, posX+1)] = 1;
 
         if (posX < 9) {
             posX += 1;
         }
 
-
-
+        gameField[posY][Math.min(9, posX)] = 1;
 
         printGameField(gameField);
 
@@ -158,11 +139,11 @@ public class MyGame extends JFrame {
 
         gameField[posY][posX] = 0;
 
-        gameField[Math.min(9, posY+1)][posX] = 1;
-
         if (posY < 9){
             posY += 1;
         }
+
+        gameField[Math.min(9, posY)][posX] = 1;
 
         printGameField(gameField);
 
@@ -173,22 +154,15 @@ public class MyGame extends JFrame {
 
         gameField[posY][posX] = 0;
 
-        gameField[Math.max(0, posY-1)][posX] = 1;
-
-
         if (posY > 0){
             posY -= 1;
         }
 
+        gameField[Math.max(0, posY)][posX] = 1;
+
         printGameField(gameField);
 
-
-
     } // end of bUP_ActionPerformed
-
-
-
-
 
 
     public static int[][] initialize(){
@@ -225,17 +199,5 @@ public class MyGame extends JFrame {
         System.out.println(string);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
     // end methods
 } // end of class MyGame
