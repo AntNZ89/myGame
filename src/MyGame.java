@@ -9,8 +9,8 @@ public class MyGame extends JFrame {
     int gameField[][] = initialize();
 
 
-    int x2 = 9;
-    int y2 = 9;
+    int x2 = 0;
+    int y2 = 10;
     int posX = 0;
     int posY = 0;
 
@@ -101,7 +101,8 @@ public class MyGame extends JFrame {
 
     public void jButton1_ActionPerformed(ActionEvent evt) {
         // TODO add your code here
-        gameField[x2][y2] = 9;
+        gameField[posY][posX] = 1;
+        gameField[y2][x2] = 9;
         printGameField(gameField);
 
     } // end of jButton1_ActionPerformed
@@ -115,13 +116,21 @@ public class MyGame extends JFrame {
         gameField[posY][posX] = 1;
 
         gameField[y2][x2] = 0;
-        if (x2 < 9){
-            x2++;
+        if (x2 > 0){
+            x2--;
         }
         gameField[y2][x2] = 9;
 
-
         printGameField(gameField);
+
+        if (y2 == posY && x2 == posX){
+            System.out.println("You have lost!");
+            bUP.setVisible(false);
+            bDOWN.setVisible(false);
+            bLEFT.setVisible(false);
+            bRIGHT.setVisible(false);
+            jButton1.setVisible(false);
+        }
 
     } // end of bLEFT_ActionPerformed
 
@@ -134,12 +143,21 @@ public class MyGame extends JFrame {
         gameField[posY][posX] = 1;
 
         gameField[y2][x2] = 0;
-        if (x2 > 0){
-            x2--;
+        if (x2 < 9){
+            x2++;
         }
         gameField[y2][x2] = 9;
 
         printGameField(gameField);
+
+        if (y2 == posY && x2 == posX){
+            System.out.println("You have lost!");
+            bUP.setVisible(false);
+            bDOWN.setVisible(false);
+            bLEFT.setVisible(false);
+            bRIGHT.setVisible(false);
+            jButton1.setVisible(false);
+        }
 
     } // end of bRIGHT_ActionPerformed
 
@@ -157,7 +175,17 @@ public class MyGame extends JFrame {
         }
         gameField[y2][x2] = 9;
 
+
         printGameField(gameField);
+
+        if (y2 == posY && x2 == posX){
+            System.out.println("You have lost!");
+            bUP.setVisible(false);
+            bDOWN.setVisible(false);
+            bLEFT.setVisible(false);
+            bRIGHT.setVisible(false);
+            jButton1.setVisible(false);
+        }
 
     } // end of bDOWN_ActionPerformed
 
@@ -177,12 +205,21 @@ public class MyGame extends JFrame {
 
         printGameField(gameField);
 
+        if (y2 == posY && x2 == posX){
+            System.out.println("You have lost!");
+            bUP.setVisible(false);
+            bDOWN.setVisible(false);
+            bLEFT.setVisible(false);
+            bRIGHT.setVisible(false);
+            jButton1.setVisible(false);
+        }
+
     } // end of bUP_ActionPerformed
 
 
     public static int[][] initialize(){
 
-        int myArray[][] = new int[10][10];
+        int myArray[][] = new int[11][11];
 
         for (int c = 0; c < 10 ; c++) {
             for (int r = 0; r < 10 ; r++) {
