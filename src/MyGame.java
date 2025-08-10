@@ -6,9 +6,11 @@ import javax.swing.event.*;
 public class MyGame extends JFrame {
     // start attributes
     private JButton jButton1 = new JButton();
-
     int gameField[][] = initialize();
 
+
+    int x2 = 9;
+    int y2 = 9;
     int posX = 0;
     int posY = 0;
 
@@ -99,36 +101,43 @@ public class MyGame extends JFrame {
 
     public void jButton1_ActionPerformed(ActionEvent evt) {
         // TODO add your code here
-
+        gameField[x2][y2] = 9;
         printGameField(gameField);
 
     } // end of jButton1_ActionPerformed
 
     public void bLEFT_ActionPerformed(ActionEvent evt) {
         // TODO add your code here
-
         gameField[posY][posX] = 0;
-
         if (posX > 0){
             posX -= 1;
         }
+        gameField[posY][posX] = 1;
 
-        gameField[posY][Math.max(0, posX)] = 1;
+        gameField[y2][x2] = 0;
+        if (x2 < 9){
+            x2++;
+        }
+        gameField[y2][x2] = 9;
+
 
         printGameField(gameField);
 
     } // end of bLEFT_ActionPerformed
 
     public void bRIGHT_ActionPerformed(ActionEvent evt) {
-        // TODO add your code here
-
-        gameField[posY][Math.min(posX, 9)] = 0;
-
+        // TODO add your code her
+        gameField[posY][posX] = 0;
         if (posX < 9) {
             posX += 1;
         }
+        gameField[posY][posX] = 1;
 
-        gameField[posY][Math.min(9, posX)] = 1;
+        gameField[y2][x2] = 0;
+        if (x2 > 0){
+            x2--;
+        }
+        gameField[y2][x2] = 9;
 
         printGameField(gameField);
 
@@ -136,14 +145,17 @@ public class MyGame extends JFrame {
 
     public void bDOWN_ActionPerformed(ActionEvent evt) {
         // TODO add your code here
-
         gameField[posY][posX] = 0;
-
         if (posY < 9){
             posY += 1;
         }
+        gameField[posY][posX] = 1;
 
-        gameField[Math.min(9, posY)][posX] = 1;
+        gameField[y2][x2] = 0;
+        if (y2 > 0){
+            y2--;
+        }
+        gameField[y2][x2] = 9;
 
         printGameField(gameField);
 
@@ -151,14 +163,17 @@ public class MyGame extends JFrame {
 
     public void bUP_ActionPerformed(ActionEvent evt) {
         // TODO add your code here
-
         gameField[posY][posX] = 0;
-
         if (posY > 0){
             posY -= 1;
         }
+        gameField[posY][posX] = 1;
 
-        gameField[Math.max(0, posY)][posX] = 1;
+        gameField[y2][x2] = 0;
+        if (y2 < 9){
+            y2++;
+        }
+        gameField[y2][x2] = 9;
 
         printGameField(gameField);
 
@@ -177,6 +192,7 @@ public class MyGame extends JFrame {
             } // end of for
         } // end of for
 
+
         return myArray;
 
     }
@@ -189,6 +205,7 @@ public class MyGame extends JFrame {
             for (int r = 0 ; r < gameField.length ; r++){
 
                 string += gameField[c][r];
+                string += " ";
 
             }
             string += "\n";
