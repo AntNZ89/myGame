@@ -5,7 +5,7 @@ import javax.swing.event.*;
 
 public class MyGame extends JFrame {
     // start attributes
-    private JButton jButton1 = new JButton();
+    private static JButton jButton1 = new JButton();
     int gameField[][] = initialize();
 
 
@@ -14,11 +14,11 @@ public class MyGame extends JFrame {
     int posX = 0;
     int posY = 0;
 
-    private JButton bLEFT = new JButton();
-    private JButton bRIGHT = new JButton();
-    private JButton bDOWN = new JButton();
-    private JButton bUP = new JButton();
-    private JLabel lYOUHAVELOST = new JLabel();
+    private static JButton bLEFT = new JButton();
+    private static JButton bRIGHT = new JButton();
+    private static JButton bDOWN = new JButton();
+    private static JButton bUP = new JButton();
+    private static JLabel lYOUHAVELOST = new JLabel();
     // end attributes
 
     public MyGame() {
@@ -131,12 +131,7 @@ public class MyGame extends JFrame {
 
         if (y2 == posY && x2 == posX){
             System.out.println("You have lost!");
-            bUP.setVisible(false);
-            bDOWN.setVisible(false);
-            bLEFT.setVisible(false);
-            bRIGHT.setVisible(false);
-            jButton1.setVisible(false);
-            lYOUHAVELOST.setVisible(true);
+            setObjectsVisible();
         }
 
     } // end of bLEFT_ActionPerformed
@@ -159,12 +154,7 @@ public class MyGame extends JFrame {
 
         if (y2 == posY && x2 == posX){
             System.out.println("You have lost!");
-            bUP.setVisible(false);
-            bDOWN.setVisible(false);
-            bLEFT.setVisible(false);
-            bRIGHT.setVisible(false);
-            jButton1.setVisible(false);
-            lYOUHAVELOST.setVisible(true);
+            setObjectsVisible();
         }
 
     } // end of bRIGHT_ActionPerformed
@@ -188,12 +178,7 @@ public class MyGame extends JFrame {
 
         if (y2 == posY && x2 == posX){
             System.out.println("You have lost!");
-            bUP.setVisible(false);
-            bDOWN.setVisible(false);
-            bLEFT.setVisible(false);
-            bRIGHT.setVisible(false);
-            jButton1.setVisible(false);
-            lYOUHAVELOST.setVisible(true);
+            setObjectsVisible();
         }
 
     } // end of bDOWN_ActionPerformed
@@ -216,12 +201,7 @@ public class MyGame extends JFrame {
 
         if (y2 == posY && x2 == posX){
             System.out.println("You have lost!");
-            bUP.setVisible(false);
-            bDOWN.setVisible(false);
-            bLEFT.setVisible(false);
-            bRIGHT.setVisible(false);
-            jButton1.setVisible(false);
-            lYOUHAVELOST.setVisible(true);
+            setObjectsVisible();
         }
 
     } // end of bUP_ActionPerformed
@@ -241,6 +221,16 @@ public class MyGame extends JFrame {
 
 
         return myArray;
+
+    }
+
+    public static void setObjectsVisible(){
+        bUP.setVisible(false);
+        bDOWN.setVisible(false);
+        bLEFT.setVisible(false);
+        bRIGHT.setVisible(false);
+        jButton1.setVisible(false);
+        lYOUHAVELOST.setVisible(true);
 
     }
 
