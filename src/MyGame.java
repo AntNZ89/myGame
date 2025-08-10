@@ -18,13 +18,14 @@ public class MyGame extends JFrame {
     private JButton bRIGHT = new JButton();
     private JButton bDOWN = new JButton();
     private JButton bUP = new JButton();
+    private JLabel lYOUHAVELOST = new JLabel();
     // end attributes
 
     public MyGame() {
         // Frame init
         super();
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        int frameWidth = 300;
+        int frameWidth = 316;
         int frameHeight = 300;
         setSize(frameWidth, frameHeight);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -87,6 +88,11 @@ public class MyGame extends JFrame {
             }
         });
         cp.add(bUP);
+        lYOUHAVELOST.setBounds(32, 72, 308, 88);
+        lYOUHAVELOST.setText("YOU HAVE LOST!");
+        lYOUHAVELOST.setFont(new Font("Dialog", Font.BOLD, 27));
+        lYOUHAVELOST.setVisible(false);
+        cp.add(lYOUHAVELOST);
         // end components
 
         setVisible(true);
@@ -130,6 +136,7 @@ public class MyGame extends JFrame {
             bLEFT.setVisible(false);
             bRIGHT.setVisible(false);
             jButton1.setVisible(false);
+            lYOUHAVELOST.setVisible(true);
         }
 
     } // end of bLEFT_ActionPerformed
@@ -157,6 +164,7 @@ public class MyGame extends JFrame {
             bLEFT.setVisible(false);
             bRIGHT.setVisible(false);
             jButton1.setVisible(false);
+            lYOUHAVELOST.setVisible(true);
         }
 
     } // end of bRIGHT_ActionPerformed
@@ -185,6 +193,7 @@ public class MyGame extends JFrame {
             bLEFT.setVisible(false);
             bRIGHT.setVisible(false);
             jButton1.setVisible(false);
+            lYOUHAVELOST.setVisible(true);
         }
 
     } // end of bDOWN_ActionPerformed
@@ -212,6 +221,7 @@ public class MyGame extends JFrame {
             bLEFT.setVisible(false);
             bRIGHT.setVisible(false);
             jButton1.setVisible(false);
+            lYOUHAVELOST.setVisible(true);
         }
 
     } // end of bUP_ActionPerformed
